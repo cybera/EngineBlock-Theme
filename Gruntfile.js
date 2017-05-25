@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var config = {
         themes: ['material'],
         theme: 'material',
-        outputDir: '../'
+        outputDir: './target'
     };
 
     require('load-grunt-tasks')(grunt);
@@ -30,19 +30,19 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    "../web/javascripts/application.js": ["<%= config.theme %>/javascripts/application.js"]
+                    "target/web/javascripts/application.js": ["<%= config.theme %>/javascripts/application.js"]
                 }
             }
         },
         uglify: {
             dist: {
                 files: {
-                    '../web/javascripts/application.min.js': ['../web/javascripts/application.js']
+                    'target/web/javascripts/application.min.js': ['target/web/javascripts/application.js']
                 },
             },
             polyfill: {
                 files: {
-                    '../web/javascripts/polyfill.min.js': [
+                    'target/web/javascripts/polyfill.min.js': [
                         'node_modules/ie8/build/ie8.js',
                         'node_modules/es5-shim/es5-shim.min.js',
                         'node_modules/html5shiv/dist/html5-shiv.min.js'
@@ -68,14 +68,14 @@ module.exports = function(grunt) {
             ]
           },
           material: {
-            src: '../web/stylesheets/*.css'
+            src: 'target/web/stylesheets/*.css'
           }
         },
         compass: {
             material: {
                 options: {
                     sassDir: 'material/stylesheets',
-                    cssDir: '../web/stylesheets',
+                    cssDir: 'target/web/stylesheets',
                     imagesDir: 'material/images',
                     outputStyle: 'compressed',
                     raw: 'preferred_syntax = :sass\n'
@@ -85,9 +85,9 @@ module.exports = function(grunt) {
         copy: {
             material: {
                 files: [
-                    { expand: true, cwd: 'material/templates/layouts/', src: ['**'], dest: '../app/Resources/views/layouts' },
-                    { expand: true, cwd: 'material/templates/modules/', src: ['**'], dest: '../app/Resources/views/modules' },
-                    { expand: true, cwd: 'material/images/', src: ['**'], dest: '../web/images' },
+                    { expand: true, cwd: 'material/templates/layouts/', src: ['**'], dest: 'target/app/Resources/views/layouts' },
+                    { expand: true, cwd: 'material/templates/modules/', src: ['**'], dest: 'target/app/Resources/views/modules' },
+                    { expand: true, cwd: 'material/images/', src: ['**'], dest: 'target/web/images' },
                 ]
             }
         },
@@ -97,25 +97,25 @@ module.exports = function(grunt) {
             },
             material: {
                 src: [
-                    '../app/Resources/views/layouts',
-                    '../app/Resources/views/modules/Authentication/View',
-                    '../app/Resources/views/modules/Default/View',
-                    '../app/Resources/views/modules/Logout/View',
-                    '../web/images/**/*',
-                    '../web/javascripts/**/*',
-                    '../web/stylesheets/**/*'
+                    'target/app/Resources/views/layouts',
+                    'target/app/Resources/views/modules/Authentication/View',
+                    'target/app/Resources/views/modules/Default/View',
+                    'target/app/Resources/views/modules/Logout/View',
+                    'target/web/images/**/*',
+                    'target/web/javascripts/**/*',
+                    'target/web/stylesheets/**/*'
                 ]
             },
             nonMinifiedJavaScript: {
                 src: [
-                    '../web/javascripts/application.js'
+                    'target/web/javascripts/application.js'
                 ]
             }
         },
         'string-replace': {
             layoutconfig: {
                 files: {
-                    '../application/configs/application.ini': '../application/configs/application.ini'
+                    'target/application/configs/application.ini': 'target/application/configs/application.ini'
                 },
                 options: {
                     replacements: [
@@ -144,14 +144,14 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: __dirname + '/..',
+                    cwd: __dirname + '/target',
                     src: [
                         'app/Resources/views/layouts/**/*.phtml',
                         'app/Resources/views/modules/**/*.phtml',
                         'web/javascripts/**/*.js',
                         'wev/stylesheets/**/*.css'
                     ],
-                    dest: __dirname + '/..'
+                    dest: __dirname + '/target'
                 }]
             }
         }
