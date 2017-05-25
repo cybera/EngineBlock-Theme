@@ -5,16 +5,24 @@
 The OpenConext wiki has info regarding the development of themes for OpenConext:
 https://github.com/OpenConext/OpenConext-engineblock/wiki/Development-Guidelines#theme-development
 
+### Building
+Ensure you have nodejs and ruby installed
+```
+cd EngineBlock-Theme
+gem install compass
+npm install
+node_modules/.bin/grunt
+```
 
-
+Compiled theme is under the `target/` folder
 
 ## Repo Management
 This repo is setup in a way that still makes it possible to track upstream
 changes from OpenConext-Engineblock.
 ### Branches:
-- master (Our theme modifications are done here)
-- upstream-theme (upstream SURFnet theme [git subtree split] from OpenConext-Engineblock/theme directory)
-- upstream-master (upstream SURFnet OpenConext-Engineblock repo)
+- `master` (All theme modifications are done here)
+- `upstream-theme` (upstream SURFnet theme [git subtree split] from OpenConext-Engineblock/theme directory)
+- `upstream-master` (upstream SURFnet OpenConext-Engineblock repo)
 
 
 
@@ -31,7 +39,7 @@ Update the `upstream-theme` branch:
 git subtree split --prefix=theme --onto upstream-theme -b upstream-theme
 ```
 
-Update master branch with newest `theme` folder changes
+Update `master` branch with newest theme changes
 ```bash
 git checkout master
 git rebase upstream-theme
