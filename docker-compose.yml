@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  engineblock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/eb
