@@ -9,7 +9,7 @@
                 <button type="submit" name="lang" value="en" {% if currentLanguage == 'en' %} class="selected" {% endif %}>EN</button>
             </li>
             <li>
-                <button type="submit" name="lang" value="nl" {% if currentLanguage == 'nl' %} class="selected" {% endif %}>NL</button>
+                <button type="submit" name="lang" value="nl" {% if currentLanguage == 'nl' %} class="selected" {% endif %}>FR</button>
             </li>
         </ul>
     </form>
@@ -19,7 +19,7 @@
                 <a{% if currentLanguage == 'en' %} class="selected"{% endif %} href="{{ queryStringFor('en') }}">EN</a>
             </li>
             <li>
-                <a{% if currentLanguage == 'nl' %} class="selected"{% endif %} href="{{ queryStringFor('nl') }}">NL</a>
+                <a{% if currentLanguage == 'nl' %} class="selected"{% endif %} href="{{ queryStringFor('nl') }}">FR</a>
             </li>
         </ul>
     {% endif %}
